@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* --------------------------------------------------
+   Tailwind CSS v4 Theme Extension
+   -------------------------------------------------- */
+@theme {
+  /* Ocean Depth Color System */
+  --color-epipelagic-start: #0e1e38;
+  --color-epipelagic-end: #0a1526;
+  --color-mesopelagic-start: #0a1526;
+  --color-mesopelagic-end: #050b14;
+  --color-bathypelagic-start: #050b14;
+  --color-bathypelagic-end: #020408;
+  --color-abyssopelagic-start: #020408;
+  --color-abyssopelagic-end: #010203;
+  --color-hadal-black: #000000;
+
+  /* Luxury Accents & Text Styles */
+  --color-pearl-white: #f4f1ea;
+  --color-muted-sand: #a5a198;
+  --color-trench-green: #0e1b1b;
+  
+  /* Bioluminescent Soft Colors (Absolutely no neon) */
+  --color-biolum-cyan: rgba(100, 200, 255, 0.8);
+  --color-biolum-cyan-dim: rgba(100, 200, 255, 0.1);
+  --color-biolum-amber: rgba(255, 200, 100, 0.85);
+  --color-biolum-amber-dim: rgba(255, 200, 100, 0.1);
+
+  /* Font Families - Set to Manrope */
+  --font-display: "Manrope", system-ui, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+
+  /* Easing Functions (Apple-style inertia curves) */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Transitions */
+  --transition-duration-cinematic: 1200ms;
+  --transition-duration-reveal: 800ms;
+  --transition-duration-micro: 300ms;
+}
+
+/* --------------------------------------------------
+   Core Document & System Settings
+   -------------------------------------------------- */
+html, body {
+  background-color: var(--color-abyssopelagic-end);
+  color: var(--color-pearl-white);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --------------------------------------------------
+   Minimalist Luxury Scrollbar
+   -------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-hadal-black);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 241, 234, 0.12);
+  border-radius: 9999px;
+  transition: background 0.3s var(--ease-cinematic);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 241, 234, 0.3);
+}
+
+/* --------------------------------------------------
+   Typography Scales
+   -------------------------------------------------- */
+.heading-hero {
+  font-family: var(--font-display);
+  font-size: 72px;
+  font-weight: 500; /* Medium weight */
+  letter-spacing: -0.02em;
+  line-height: 1.25; /* Large line spacing */
+  text-rendering: optimizeLegibility;
+}
+@media (min-width: 768px) {
+  .heading-hero {
+    font-size: 96px;
+  }
+}
+
+.heading-section {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 500; /* Medium weight */
+  letter-spacing: -0.015em;
+  line-height: 1.35; /* Large line spacing */
+  text-rendering: optimizeLegibility;
+}
+@media (min-width: 768px) {
+  .heading-section {
+    font-size: 52px;
+  }
+}
+
+.text-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 500; /* Medium font weight */
+  line-height: 1.8; /* Large line spacing */
+  color: var(--color-muted-sand);
+}
+@media (min-width: 768px) {
+  .text-body {
+    font-size: 18px;
+  }
+}
+
+.text-meta {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-muted-sand);
+}
+
+/* --------------------------------------------------
+   Ocean Gradient Background Zones
+   -------------------------------------------------- */
+.bg-gradient-epipelagic {
+  background: linear-gradient(180deg, var(--color-epipelagic-start) 0%, var(--color-epipelagic-end) 100%);
+}
+
+.bg-gradient-mesopelagic {
+  background: linear-gradient(180deg, var(--color-mesopelagic-start) 0%, var(--color-mesopelagic-end) 100%);
+}
+
+.bg-gradient-bathypelagic {
+  background: linear-gradient(180deg, var(--color-bathypelagic-start) 0%, var(--color-bathypelagic-end) 100%);
+}
+
+.bg-gradient-abyssopelagic {
+  background: linear-gradient(180deg, var(--color-abyssopelagic-start) 0%, var(--color-abyssopelagic-end) 100%);
+}
+
+/* --------------------------------------------------
+   Glassmorphic Surfaces
+   -------------------------------------------------- */
+.glass-panel {
+  background: rgba(10, 21, 38, 0.4);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(244, 241, 234, 0.05);
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.8);
+  border-radius: 1rem; /* 16px */
+}
+
+.glass-panel-light {
+  background: rgba(244, 241, 234, 0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(244, 241, 234, 0.03);
+  border-radius: 9999px;
+}
+
+.glass-panel-heavy {
+  background: rgba(2, 4, 8, 0.75);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid rgba(244, 241, 234, 0.08);
+  box-shadow: 0 40px 80px -25px rgba(0, 0, 0, 0.95);
+  border-radius: 1.5rem; /* 24px */
+}
+
+/* --------------------------------------------------
+   Button Component Styles
+   -------------------------------------------------- */
+.btn-primary {
+  background-color: var(--color-pearl-white);
+  color: var(--color-abyssopelagic-end);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-duration-micro) var(--ease-cinematic);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  color: var(--color-pearl-white);
+  border-color: rgba(244, 241, 234, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: rgba(244, 241, 234, 0.03);
+  color: var(--color-pearl-white);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 1rem 2.25rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  border: 1px solid rgba(244, 241, 234, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all var(--transition-duration-micro) var(--ease-cinematic);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(244, 241, 234, 0.08);
+  border-color: rgba(244, 241, 234, 0.25);
+  transform: translateY(-2px);
+}
+
+.btn-link {
+  color: var(--color-pearl-white);
+  font-family: var(--font-display);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition-duration-micro) var(--ease-cinematic);
+}
+
+.btn-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-pearl-white);
+  transition: width var(--transition-duration-micro) var(--ease-cinematic);
+}
+
+.btn-link:hover::after {
+  width: 100%;
+}
+
+/* --------------------------------------------------
+   Volumetric Oceanic Shadows & Glows
+   -------------------------------------------------- */
+.shadow-deep {
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.85);
+}
+
+.shadow-glow-cyan {
+  box-shadow: 0 0 40px -10px var(--color-biolum-cyan-dim);
+}
+
+.shadow-glow-amber {
+  box-shadow: 0 0 40px -10px var(--color-biolum-amber-dim);
+}
+
+/* --------------------------------------------------
+   Lenis & GSAP Smooth Scroll Setup
+   -------------------------------------------------- */
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* --------------------------------------------------
+   Premium Text Selection Glow
+   -------------------------------------------------- */
+::selection {
+  background: rgba(100, 200, 255, 0.15);
+  color: var(--color-pearl-white);
+  text-shadow: 0 0 10px rgba(100, 200, 255, 0.4);
+}
